@@ -50,6 +50,16 @@ spec:
             - name: ldaps-udp
               containerPort: 636
               protocol: UDP
+          livenessProbe:
+            tcpSocket:
+              port: 389
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          readinessProbe:
+            tcpSocket:
+              port: 389
+            initialDelaySeconds: 15
+            periodSeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
