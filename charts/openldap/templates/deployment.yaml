@@ -53,6 +53,8 @@ spec:
           volumeMounts:
           - name: {{ .Release.Name }}-config
             mountPath: '/etc/openldap/slapd.d'
+          - name: {{ .Release.Name }}-database
+            mountPath: '/var/lib/ldap'
           livenessProbe:
             tcpSocket:
               port: 389
@@ -69,6 +71,9 @@ spec:
       - name: {{ .Release.Name }}-config
         persistentVolumeClaim:
           claimName: {{ .Release.Name }}-config
+      - name: {{ .Release.Name }}-database
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}-database
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
