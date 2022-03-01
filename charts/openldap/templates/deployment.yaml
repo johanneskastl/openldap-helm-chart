@@ -60,13 +60,13 @@ spec:
           livenessProbe:
             tcpSocket:
               port: 389
-            initialDelaySeconds: 15
-            periodSeconds: 10
+            initialDelaySeconds: 30
+            periodSeconds: 15
           readinessProbe:
             tcpSocket:
               port: 389
-            initialDelaySeconds: 15
-            periodSeconds: 10
+            initialDelaySeconds: 30
+            periodSeconds: 15
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       volumes:
