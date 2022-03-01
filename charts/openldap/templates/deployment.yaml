@@ -57,6 +57,10 @@ spec:
             mountPath: '/etc/openldap/slapd.d'
           - name: {{ .Release.Name }}-database
             mountPath: '/var/lib/ldap'
+          {{- if .Values.tls_certificates_from_secret.enabled }}
+          - name: {{ .Release.Name }}-certs
+            mountPath: '/etc/openldap/certs'
+          {{- end }}
           livenessProbe:
             tcpSocket:
               port: 389
@@ -81,6 +85,18 @@ spec:
       - name: {{ .Release.Name }}-database
         persistentVolumeClaim:
           claimName: {{ .Release.Name }}-database
+      {{- if .Values.tls_certificates_from_secret.enabled -}}
+      {{- if .Values.tls_certificates_from_secret.generate_certificate }}
+      - name: {{ .Release.Name }}-certs
+        secret:
+          secretName: {{ .Values.tls_certificates_from_secret.certificate.secretName }}
+      {{- end }}
+      {{- if .Values.tls_certificates_from_secret.existingSecret }}
+      - name: {{ .Release.Name }}-certs
+        secret:
+          secretName: {{ .Values.tls_certificates_from_secret.existingSecret.name }}
+      {{- end }}
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
