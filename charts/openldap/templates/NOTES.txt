@@ -1,7 +1,13 @@
+{{- if contains "LoadBalancer" .Values.service.type }}
+
 OpenLDAP should be running, and you can reach it via the LoadBalancer (unless you modified the service type).
 
 NOTE: It may take a few minutes for the LoadBalancer IP to be available.
       You can watch the status of by running 'kubectl get svc -w {{ .Release.Name }}'
 
-export LOADBALANCER_IP=$(kubectl get svc --namespace {{ .Release.Namespace }} {{ .Release.Name }} -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
-echo "Your OpenLDAP server listens at $LOADBALANCER_IP"
+Once the LoadBalancer IP is available, use the following commands:
+   export LOADBALANCER_IP=$(kubectl get svc --namespace {{ .Release.Namespace }} {{ .Release.Name }} -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+   echo "Your OpenLDAP server listens at $LOADBALANCER_IP"
+{{- else }}
+OpenLDAP should be running, but as you choose a type other than LoadBalancer for the service, you are own your own. Sorry...
+{{- end }}
