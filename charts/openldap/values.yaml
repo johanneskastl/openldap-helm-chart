@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: nginx
+  repository: registry.opensuse.org/devel/kubic/containers/container/opensuse/openldap
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "2.4.59"
 
 imagePullSecrets: []
 nameOverride: ""
