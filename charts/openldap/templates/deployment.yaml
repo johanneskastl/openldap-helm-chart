@@ -39,6 +39,8 @@ spec:
               value: '/etc/ssl/private/tls.crt'
             - name: LDAP_TLS_KEY
               value: '/etc/ssl/private/tls.key'
+            - name: LDAP_TLS_CA_CRT
+              value: '/etc/ssl/private/tls.crt'
           {{- end }}
           {{- if .Values.envFrom }}
           envFrom:
