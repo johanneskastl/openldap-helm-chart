@@ -3,6 +3,17 @@ entries:
   openldap:
   - apiVersion: v2
     appVersion: 2.4.59
+    created: "2022-03-02T13:32:01.747808841Z"
+    description: A Helm Chart to deploy openLDAP in Kubernetes, using the openSUSE
+      openLDAP image
+    digest: 92794dea2566e9be12c98248e4edde4f7c76cd22c6752fe2fa4fdac1d6b6a175
+    name: openldap
+    type: application
+    urls:
+    - https://github.com/johanneskastl/openldap-helm-chart/releases/download/openldap-0.5.0/openldap-0.5.0.tgz
+    version: 0.5.0
+  - apiVersion: v2
+    appVersion: 2.4.59
     created: "2022-03-02T09:09:00.787144099Z"
     description: A Helm Chart to deploy openLDAP in Kubernetes, using the openSUSE
       openLDAP image
@@ -23,4 +34,4 @@ entries:
     urls:
     - https://github.com/johanneskastl/openldap-helm-chart/releases/download/openldap-0.3.0/openldap-0.3.0.tgz
     version: 0.3.0
-generated: "2022-03-02T09:09:00.787152999Z"
+generated: "2022-03-02T13:32:01.747822941Z"
