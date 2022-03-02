@@ -33,6 +33,11 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- if not .Values.tls_enabled }}
+          env:
+            - name: LDAP_TLS
+              value: '0'
+          {{- end }}
           {{- if .Values.tls_certificates_from_secret.enabled }}
           env:
             - name: LDAP_TLS_CRT
