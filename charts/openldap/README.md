@@ -8,13 +8,13 @@ A Helm Chart to deploy openLDAP in Kubernetes, using the openSUSE openLDAP image
 ```console
 $ helm repo add johanneskastl-openldap https://johanneskastl.github.io/openldap-helm-chart/
 $ helm repo update
-$ helm install openldap johanneskastl/openldap
+$ helm install openldap johanneskastl-openldap/openldap
 ```
 
 ## Installing the Chart
 To install the chart with the release name `openldap`:
 ```console
-helm install openldap johanneskastl/openldap
+helm install openldap johanneskastl-openldap/openldap
 ```
 
 ## Uninstalling the Chart
@@ -32,12 +32,12 @@ Specify each parameter using the `--set key=value[,key=value]` argument to `helm
 ```console
 helm install openldap \
   --set env.TZ="America/New York" \
-    johanneskastl/openldap
+    johanneskastl-openldap/openldap
 ```
 
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart.
 For example,
 ```console
-helm install openldap johanneskastl/openldap -f values.yaml
+helm install openldap johanneskastl-openldap/openldap -f values.yaml
 ```
 

@@ -1,5 +1,5 @@
 {{- define "repository.organization" -}}
-  johanneskastl
+  johanneskastl-openldap
 {{- end -}}
 
 {{- define "repository.url" -}}
@@ -21,7 +21,7 @@
 {{- define "install.tldr" -}}
 ## TL;DR
 ```console
-$ helm repo add {{ template "repository.organization" . }}-openldap {{ template "helm.url" . }}
+$ helm repo add {{ template "repository.organization" . }} {{ template "helm.url" . }}
 $ helm repo update
 $ helm install {{ template "chart.name" . }} {{ template "helm.path" . }}
 ```
