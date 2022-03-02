@@ -4,11 +4,6 @@
 
 A Helm Chart to deploy openLDAP in Kubernetes, using the openSUSE openLDAP image
 
-## Dependencies
-
-| Repository | Name | Version |
-|------------|------|---------|
-
 ## TL;DR
 ```console
 $ helm repo add johanneskastl-openldap https://johanneskastl.github.io/openldap-helm-chart/

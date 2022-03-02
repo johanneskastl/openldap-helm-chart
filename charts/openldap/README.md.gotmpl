@@ -75,10 +75,6 @@ helm install {{ template "chart.name" . }} {{ template "helm.path" . }} -f value
 
 {{ template "chart.description" . }}
 
-{{ template "dependenciesHeader" . }}
-
-{{ template "chart.requirementsTable" . }}
-
 {{ template "chart.kubeVersionLine" . }}
 
 {{ template "install.tldr" . }}
