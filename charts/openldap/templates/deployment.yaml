@@ -59,7 +59,7 @@ spec:
             mountPath: '/var/lib/ldap'
           {{- if .Values.tls_certificates_from_secret.enabled }}
           - name: {{ .Release.Name }}-certs
-            mountPath: '/etc/openldap/certs'
+            mountPath: '/etc/ssl/private/'
           {{- end }}
           livenessProbe:
             tcpSocket:
